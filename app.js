@@ -5,7 +5,7 @@ var bodyParser = require("body-parser");
 var routes = require("./routes/routes.js");
 var app = express();
 
-var allowedOrigins = ['https://jennifer.minhyukpark.com', 'https://chess.minhyukpark.com', 'https://music.minhyukpark.com', 'https://api.minhyukpark.com'];
+var allowedOrigins = ['https://jennifer.minhyukpark.com', 'https://chess.minhyukpark.com', 'https://musictude.minhyukpark.com', 'https://api.minhyukpark.com'];
 var corsOptions = {
     origin: function(origin, callback) {
         console.log(origin);
