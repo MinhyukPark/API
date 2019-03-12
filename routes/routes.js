@@ -4,6 +4,9 @@ var prometheus_cred = require('../prometheus_cred.json');
 var monitor_cred = require('../monitor_cred.json');
 var office_cred = require('../office_cred.json');
 var MongoClient = require('mongodb').MongoClient;
+var request = require('request');
+var querystring = require('querystring');
+
 const auth = require('express-basic-auth');
 var g_client = null;
 MongoClient.connect('mongodb://localhost:27017/music', (err, client) => {
@@ -84,6 +87,25 @@ var appRouter = function (app) {
           //client.close();
       //});
   });
+  /*
+  app.get('/music/token', function(req, res) { 
+      var appKey = req.get("appKey");
+      var appSecret = req.get("appSecret");
+      var refreshToken = req.get("refreshToken");
+      const url = "https://accounts.spotify.com/api/token"; 
+      var header = {"Authorization" : "Basic " + querystring.stringify({appKey:appSecret})}; 
+      var body = {grant_type: "refresh_token", refresh_token: refreshToken}; 
+
+      request.post({url: url, headers: header, formData: body}, function callback(err, httpResponse, body) {
+          if(err) {
+              return console.error('post failed', err);
+          }
+          console.log(body);
+          res.status(200).send(body["access_token"]);  
+      });
+  }); 
+  */
+
 
   /* auth */
   app.get('/auth-prometheus', auth({

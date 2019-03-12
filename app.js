@@ -17,7 +17,7 @@ var corsOptions = {
     },
     methods: "GET, POST, OPTIONS",
     optionsSuccessStatus: 204,
-    allowedHeaders: "Origin, X-Requested-With, Content-Type, Accept, roomcode"
+    allowedHeaders: "Origin, X-Requested-With, Content-Type, Accept, roomcode, appKey, appSecret, refreshToken"
 }
 
 app.use(cors(corsOptions));
